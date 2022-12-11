@@ -13,8 +13,14 @@
             </div>
         </div>
         <hr>
-
         <h1>Publicaciones</h1>
+        @guest
+
+        @else
+        <a href="#">Crear Post</a>
+        @endguest
+
+
         <hr>
         <div class="card text-start">
             @foreach ($posts as $item)
