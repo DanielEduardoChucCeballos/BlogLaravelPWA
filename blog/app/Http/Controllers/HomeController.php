@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
     /**
@@ -9,9 +11,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-   /*  public function __construct()
+    /*  public function __construct()
     {
-        $this->middleware('auth');
+    $this->middleware('auth');
     } */
 
     /**
@@ -21,16 +23,21 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $categories = DB::table('categories')->get();
+        /*   $posts = DB::table('posts')->orderBy('created_at', 'DESC')->get(); */
+        $posts = \App\Models\Post::join('users', 'posts.user_id', '=', 'users.id')->join('categories', 'posts.category_id', '=', 'categories.id')->orderBy('posts.created_at', 'DESC')->get();
 
-        return view('home');
+
+        return view('index', compact('categories', 'posts'));
+
+        return view('index');
     }
     public function inicio()
     {
         $categories = DB::table('categories')->get();
-      /*   $posts = DB::table('posts')->orderBy('created_at', 'DESC')->get(); */
-      $posts = DB::table('posts')->join('users', 'posts.user_id', '=', 'users.id')->orderBy('posts.created_at', 'DESC')->get();
+        /* $posts = DB::table('posts')->join('users', 'posts.user_id', '=', 'users.id')->join('categories', 'posts.category_id', '=', 'categories.id')->orderBy('posts.created_at', 'DESC')->get(); */
+        $posts = \App\Models\Post::join('users', 'posts.user_id', '=', 'users.id')->join('categories', 'posts.category_id', '=', 'categories.id')->orderBy('posts.created_at', 'DESC')->get();
 
-
-        return view('index',compact('categories','posts'));
+        return view('index', compact('categories', 'posts'));
     }
 }

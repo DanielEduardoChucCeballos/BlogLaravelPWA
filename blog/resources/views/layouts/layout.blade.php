@@ -17,14 +17,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container">
-            <a class="navbar-brand text-light" href="#">Navbar</a>
+            <a class="navbar-brand text-light" href="{{ route('posts.index') }}">Blog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {{-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active text-light" aria-current="page" href="#">Inicio</a>
                     </li>
@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link disabled text-light">Deshabilitado</a>
                     </li>
-                </ul>
+                </ul> --}}
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -111,7 +111,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-dark text-muted">
+    {{-- <footer class="text-center text-lg-start bg-dark text-muted">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
@@ -230,7 +230,7 @@
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
         </div>
         <!-- Copyright -->
-    </footer>
+    </footer> --}}
     <!-- Footer -->
 </body>
 

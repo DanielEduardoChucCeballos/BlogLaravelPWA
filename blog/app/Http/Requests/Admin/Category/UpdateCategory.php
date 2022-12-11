@@ -26,7 +26,7 @@ class UpdateCategory extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['sometimes', 'string'],
+            'namecategory' => ['sometimes', 'string'],
             'slug' => ['sometimes', Rule::unique('categories', 'slug')->ignore($this->category->getKey(), $this->category->getKeyName()), 'string'],
             
         ];
